@@ -23,6 +23,15 @@ def get_incomes():
     return jsonify(incomes.data)
 
 
+@app.route('/incomes/<int:income_idx>')
+def get_income(income_idx):
+    schema = IncomeSchema(many=True)
+    incomes = schema.dump(
+        filter(lambda t: t.type == TransactionType.INCOME, transactions)
+    )
+    return jsonify(incomes.data[income_idx])
+
+
 @app.route('/incomes', methods=['POST'])
 def add_income():
     income = IncomeSchema().load(request.get_json())
