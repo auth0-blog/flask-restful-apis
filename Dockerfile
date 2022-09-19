@@ -1,5 +1,5 @@
 # Using lightweight alpine image
-FROM python:3.6-alpine
+FROM python:3.10-alpine
 
 # Installing packages
 RUN apk update
@@ -11,7 +11,7 @@ COPY Pipfile Pipfile.lock bootstrap.sh ./
 COPY cashman ./cashman
 
 # Install API dependencies
-RUN pipenv install
+RUN pipenv install --system --deploy
 
 # Start app
 EXPOSE 5000
