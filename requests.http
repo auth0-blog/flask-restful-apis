@@ -1,0 +1,25 @@
+### Get expenses
+GET http://localhost:5000/expenses
+Accept: application/json
+
+### Get incomes
+GET http://localhost:5000/incomes
+Accept: application/json
+
+### Add expense
+POST http://localhost:5000/expenses
+Content-Type: application/json
+
+{
+  "amount": 999,
+  "description": "Magazines"
+}
+
+### Add income
+POST http://localhost:5000/incomes
+Content-Type: application/json
+
+{
+  "amount": 10.2,
+  "description": "Revenue"
+}

@@ -7,12 +7,10 @@ Check it out for more info!
 
 ### Running the API
 
-To run this application, you will need Python 3+ and [Pipenv](https://pipenv.readthedocs.io/en/latest/) installed locally. If you have then, you can issue the following commands:
+To run this application, you will need Python 3+ and [UV](https://docs.astral.sh/uv/) installed locally.
 
 ```bash
-# from the flask-restful-apis directory
-pipenv install
-./bootstrap.sh 
+./bootstrap.sh
 ```
 
 Then you can issue requests to your API. For example, with `curl`, you can issue requests like that:

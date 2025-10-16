@@ -44,7 +44,3 @@ def add_expense():
     expense = ExpenseSchema().load(request.get_json())
     transactions.append(expense)
     return "", 204
-
-
-if __name__ == "__main__":
-    app.run()
