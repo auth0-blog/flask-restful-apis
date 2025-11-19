@@ -1,18 +1,10 @@
-# Using lightweight alpine image
-FROM python:3.10-alpine
+FROM ghcr.io/astral-sh/uv:python3.13-alpine
 
-# Installing packages
-RUN apk update
-RUN pip install --no-cache-dir pipenv
+COPY . /app
 
-# Defining working directory and adding source code
-WORKDIR /usr/src/app
-COPY Pipfile Pipfile.lock bootstrap.sh ./
-COPY cashman ./cashman
-
-# Install API dependencies
-RUN pipenv install --system --deploy
+WORKDIR /app
+RUN uv sync --locked
 
 # Start app
 EXPOSE 5000
-ENTRYPOINT ["/usr/src/app/bootstrap.sh"]
+CMD ["/app/bootstrap.sh"]
